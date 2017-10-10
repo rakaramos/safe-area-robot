@@ -1,6 +1,8 @@
 on run {input, parameters}
+	
 	set interfaceBuilderFile to parameters
 	delay 1
+
 	tell application "Xcode"
 		open interfaceBuilderFile
 		activate
@@ -22,6 +24,15 @@ on run {input, parameters}
 					keystroke space
 				end if
 			end try
+
+			-- Update frame so we dont end up with misplaced views
+			try
+				tell application "System Events" to tell process "Xcode"
+					set documentOutline to row 1 of outline "document outline" of scroll area 1 of splitter group 1 of group 1 of splitter group 1 of group 1 of splitter group 1 of window 1 of application process "Xcode" of application "System Events"
+					set selected of documentOutline to true
+					click menu item 9 of menu "Resolve Auto Layout Issues" of menu item "Resolve Auto Layout Issues" of menu "Editor" of menu bar item "Editor" of menu bar 1 of application process "Xcode" of application "System Events"
+				end tell
+			end try
 		end tell
 	end tell
 
@@ -35,4 +46,5 @@ on run {input, parameters}
 	tell application "Xcode"
 		quit
 	end tell
+
 end run
