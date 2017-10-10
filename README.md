@@ -9,13 +9,16 @@ One could argue that we can diff out the files and just "bulk apply" to other. Y
 
 With `AppleScript` and `Accessibility` we can automate this boring and repetitive task.
 Just keep in mind that these script are not meant to resolve world hunger, so please, bear with me.
+Make sure to add `Terminal` app to the `Accessibility` list.
+
+![alt text](images/accessibility-terminal.png "Accessibility panel")
 
 ## Xcode UI State
 
 Before you start, make sure that your Xcode looks like the following (`Utilities` pane, on the right, open along with `Indentity and Type` selected).
 This step is important because since we use Accessibility, sometimes it can lost track of UI elements and the script will fail to execute.
 
-![alt text](xcode-ui-state.png "Xcode UI State")
+![alt text](images/xcode-ui-state.png "Xcode UI State")
 
 ### Running the script
 
@@ -29,4 +32,4 @@ $ ./safeArea.sh ~/Documents/XCode\ Projects/Example
 Step away from keyboard and trackpad and let the script run.
 Go have fun outside :P
 
-![alt text](script-running.gif "Script in action!")
+![alt text](images/script-running.gif "Script in action!")
